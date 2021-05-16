@@ -24,12 +24,14 @@
       <p>Result: {{ counter }}</p>
 
       <input type="text" 
-        v-on:input="changeName($event, 'test')"
+        v-model="name"
         v-on:keyup.enter="confirmInput">
+        <button v-on:click="resetInput">Reset</button>
       <p>Your Name: {{name}}</p>
       <form v-on:submit.prevent ="submitForm">
         <input type="text">
         <button>Sign Up</button>
+   
       </form>
     </section>
   </body>

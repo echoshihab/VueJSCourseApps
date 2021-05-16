@@ -13,8 +13,8 @@ const app = Vue.createApp({
     reduce(num){
       this.counter = this.counter-num
     },
-    changeName(e, nextParam){
-      this.name= e.target.value + ' ' + nextParam
+    changeName(e){
+      this.name= e.target.value
     },
     submitForm(e){
       e.preventDefault();
@@ -22,6 +22,9 @@ const app = Vue.createApp({
     },
     confirmInput(e){
       this.name = e.target.value;
+    },
+    resetInput(){
+      this.name = '';
     }
        
   }
