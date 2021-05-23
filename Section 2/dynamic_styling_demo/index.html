@@ -19,8 +19,8 @@
     <section id="styling">
       <!-- <div :style="{borderColor: boxASelected ? 'red' : '#ccc'}"  @click="boxSelected('A')" class="demo"></div> -->
       <!-- <div @click="boxSelected('A')" :class="boxASelected ? 'demo active' : 'demo'"></div> -->
-      <div @click="boxSelected('A')" class="demo" :class="{active:boxASelected}"></div>
-      <div @click="boxSelected('B')" class="demo" :class="{active:boxBSelected}"></div>
+      <div @click="boxSelected('A')" class="demo" :class="boxAClasses"></div>
+      <div @click="boxSelected('B')" :class="['demo', {active: boxBSelected}]"></div>
       <div @click="boxSelected('C')" class="demo" :class="{active:boxCSelected}"></div>
     </section>
   </body>
