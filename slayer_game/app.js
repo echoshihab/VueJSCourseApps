@@ -9,9 +9,9 @@ const app = Vue.createApp({
             monsterHealth: 100
         };
     },
-    methoods: {
+    methods: {
         attackMonster(){
-           const attackValue= getRandomValue(5,12)
+           const attackValue= getRandomValue(5,12);
            this.monsterHealth -= attackValue;
            this.attackPlayer();
         },
@@ -24,3 +24,4 @@ const app = Vue.createApp({
 });
 
 app.mount('#game');
+
