@@ -11,8 +11,7 @@
     <friend-contact
     name="Pam Beattie"
     phone-number="212 121 1211"
-    email-address="pam@test.com"
-    is-favorite="0">
+    email-address="pam@test.com">
     </friend-contact>
 </ul>
 </section>
