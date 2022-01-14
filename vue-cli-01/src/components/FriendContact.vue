@@ -9,10 +9,20 @@
         <li><strong>Phone:</strong>{{ phoneNumber }}</li> 
         <li><strong>Email:</strong>{{ emailAddress }}</li> 
     </ul>
+    <button @click="$emit('delete-friend', id)">Delete</button>
 </li>
 </template>
 
 <script>
+
+const validateId = (id) => {
+ if(id){
+            return true;
+          } else{
+            console.warn("Id is missing!");
+            return false;
+          }
+};
 export default {
       props:{
         id: {
@@ -41,14 +51,8 @@ export default {
         }
       },
       emits: {
-        'toggle-favorite': function(id){
-          if(id){
-            return true;
-          } else{
-            console.warn("Id is missing!");
-            return false;
-          }
-        }
+        'delete-friend': validateId,
+        'toggle-favorite': validateId,
       },
     data(){
         return{
@@ -61,7 +65,8 @@ export default {
         },
         toggleFavorite(){
            this.$emit('toggle-favorite', this.id);
-        }
+        },
+        
     }
 };
 </script>
