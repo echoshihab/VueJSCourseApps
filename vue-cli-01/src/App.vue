@@ -22,14 +22,24 @@
     phone-number="212 121 1211"
     email-address="pam@test.com">
     </friend-contact>
+    <user-data @add-data="addData"></user-data>
+    <active-user
+    v-for="user in users"
+    :key="user.name"
+    :name="user.name"
+    :age="user.age"
+    ></active-user>
+
 </ul>
 </section>
 </template>
 
 <script>
+import ActiveUser from './components/ActiveUser.vue';
 import NewFriend from './components/NewFriend.vue';
+import UserData from './components/UserData.vue';
 export default{
-  components: { NewFriend },
+  components: { NewFriend, UserData, ActiveUser },
     data(){
         return {
             friends: [
@@ -48,13 +58,21 @@ export default{
                     isFavorite: false
                 }
 
-            ]
+            ],
+            users: [],
         }
     },
     methods: {
         toggleFavoriteStatus(friendId) {
         const friend = this.friends.find(friend => friend.id === friendId);
         friend.isFavorite = !friend.isFavorite;
+        },
+        addData(name, age) {
+          const newUser = {
+            name: name,
+            age: age
+          }
+          this.users.push(newUser);
         },
         addContact(name, phone, email) {
             const newFriendContact = {
