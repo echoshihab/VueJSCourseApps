@@ -1,7 +1,7 @@
 <template>
     <header>
         <h1>Name: {{name}} </h1>
-        <h1>Age: {{age}} </h1>
+        <h1>Age: {{age}} years </h1>
     </header>
 </template>
 
@@ -13,7 +13,7 @@
              required: true
          },
          age: {
-             type: String,
+             type: Number,
              required: true
          },
      }

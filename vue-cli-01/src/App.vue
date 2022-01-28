@@ -70,7 +70,7 @@ export default{
         addData(name, age) {
           const newUser = {
             name: name,
-            age: age
+            age: +age
           }
           this.users.push(newUser);
         },
