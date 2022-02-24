@@ -1,7 +1,7 @@
 <template>
 <base-card>
-<base-button @click="setSelectedTab('stored-resources')">Stored Resources</base-button>
-<base-button @click="setSelectedTab('add-resource')">Add Resource</base-button>
+<base-button @click="setSelectedTab('stored-resources')" :mode="storedResourceBtnMode">Stored Resources</base-button>
+<base-button @click="setSelectedTab('add-resource')" :mode="addResourceBtnMode">Add Resource</base-button>
 </base-card>
 <component :is="selectedTab"></component>
 </template>
@@ -43,6 +43,14 @@ export default {
     provide() {
         return {
             resources: this.storedResources
+        }
+    },
+    computed: {
+        storedResourceBtnMode(){
+            return this.selectedTab === 'stored-resources' ? null : 'flat'
+        },
+        addResourceBtnMode() {
+            return this.selectedTab === 'add-resource' ? null : 'flat';
         }
     }
 }
