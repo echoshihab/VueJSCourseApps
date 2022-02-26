@@ -1,6 +1,6 @@
 <template>
 <base-card>
-<base-dialog v-if="inputIsInvalid" title="Invalid Input">
+<base-dialog v-if="inputIsInvalid" title="Invalid Input" @close="confirmError">
   <template #default>
     <p>Input invalid!</p>
     <p>Please check all inputs and ensure none are empty</p>
