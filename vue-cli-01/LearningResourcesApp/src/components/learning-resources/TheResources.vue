@@ -14,7 +14,6 @@ import StoredResources from './StoredResources.vue';
 import AddResource from './AddResource.vue';
 
 export default {
-    
     components:{
         StoredResources,
         AddResource
@@ -51,11 +50,16 @@ export default {
             };
             this.storedResources.unshift(newResource);
             this.selectedTab = 'stored-resources';
+        },
+        deleteResource(resourceId) {
+            const resIndex = this.storedResources.findIndex(res => res.id === resourceId);
+            this.storedResources.splice(resIndex, 1);
         }
     },
     provide() {
         return {
             addResource: this.addResource,
+            deleteResource: this.deleteResource,
             resources: this.storedResources
         }
     },
