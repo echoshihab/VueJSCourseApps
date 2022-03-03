@@ -46,7 +46,7 @@ export default {
       invalidInput: false,
     };
   },
-  emits: ['survey-submit'],
+  // emits: ['survey-submit'],
   methods: {
     submitSurvey() {
       if (this.enteredName === '' || !this.chosenRating) {
@@ -54,11 +54,21 @@ export default {
         return;
       }
       this.invalidInput = false;
+  
+      fetch(process.env.FIREBASE_ADDRESS+ 'surveys.json', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({name: this.userName,
+        rating: this.chosenRating}),
 
-      this.$emit('survey-submit', {
-        userName: this.enteredName,
-        rating: this.chosenRating,
       });
+
+      // this.$emit('survey-submit', {
+      //   userName: this.enteredName,
+      //   rating: this.chosenRating,
+      // });
 
       this.enteredName = '';
       this.chosenRating = null;
