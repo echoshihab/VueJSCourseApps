@@ -54,19 +54,18 @@ export default {
         return;
       }
       this.invalidInput = false;
-  
       fetch(process.env.FIREBASE_ADDRESS+ 'surveys.json', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({name: this.userName,
+        body: JSON.stringify({name: this.enteredName,
         rating: this.chosenRating}),
 
       });
 
       // this.$emit('survey-submit', {
-      //   userName: this.enteredName,
+      //   userName: this.userName,
       //   rating: this.chosenRating,
       // });
 
