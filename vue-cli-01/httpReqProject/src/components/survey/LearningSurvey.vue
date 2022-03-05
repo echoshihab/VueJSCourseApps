@@ -54,6 +54,7 @@ export default {
         return;
       }
       this.invalidInput = false;
+      //process.env.FIREBASE_ADDRESS
       fetch(process.env.FIREBASE_ADDRESS+ 'surveys.json', {
         method: 'POST',
         headers: {
