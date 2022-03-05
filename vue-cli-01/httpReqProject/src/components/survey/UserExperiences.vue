@@ -26,16 +26,23 @@ export default {
   },
   data() {
     return {
-      retsults: []
+      results: []
     }
   },
   methods: {
     loadExperiences(){
-       fetch(process.env.FIREBASE_ADDRESS+ 'surveys.json').then(function(response){
+       fetch(process.env.FIREBASE_ADDRESS+ 'surveys.json').
+       then((response) => {
         if(response.ok)
         return response.json();
-       }).then(function(data){
-         console.log(data);
+       }).then((data) => {
+         const results= [];
+         for(const id in data) {
+           results.push({id: id, 
+                        name: data[id].name, 
+                        rating: data[id].rating});
+         }
+         this.results = results;
        });
     },
   }
