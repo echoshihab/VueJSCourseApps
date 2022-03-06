@@ -31,7 +31,7 @@ export default {
   },
   methods: {
     loadExperiences(){
-       fetch(process.env.FIREBASE_ADDRESS+ 'surveys.json').
+       fetch(process.env.VUE_APP_FIREBASE_ADDRESS+ 'surveys.json').
        then((response) => {
         if(response.ok)
         return response.json();
