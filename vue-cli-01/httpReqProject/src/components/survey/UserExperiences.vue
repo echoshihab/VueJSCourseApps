@@ -40,7 +40,7 @@ export default {
     loadExperiences(){
        this.isLoading = true;
        this.error = null;
-       fetch(process.env.VUE_APP_FIREBASE_ADDRESS+ 'surveys').
+       fetch(process.env.VUE_APP_FIREBASE_ADDRESS+ 'surveys.json').
        then((response) => {
         if(response.ok)
         return response.json();

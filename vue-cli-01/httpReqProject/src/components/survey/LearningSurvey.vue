@@ -29,6 +29,7 @@
         <p
           v-if="invalidInput"
         >One or more input fields are invalid. Please check your provided data.</p>
+        <p v-if="error">{{error}}</p>
         <div>
           <base-button>Submit</base-button>
         </div>
@@ -44,6 +45,7 @@ export default {
       enteredName: '',
       chosenRating: null,
       invalidInput: false,
+      error: null
     };
   },
   // emits: ['survey-submit'],
@@ -55,15 +57,18 @@ export default {
       }
       this.invalidInput = false;
       //process.env.FIREBASE_ADDRESS
-      fetch(process.env.FIREBASE_ADDRESS+ 'surveys.json', {
+      this.error = null;
+      fetch(process.env.VUE_APP_FIREBASE_ADDRESS+ 'surveys', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({name: this.enteredName,
         rating: this.chosenRating}),
-
-      });
+      }).catch(error => {
+        console.log(error);
+        this.error = 'Something went wrong - try again later!'
+      })
 
       // this.$emit('survey-submit', {
       //   userName: this.userName,
