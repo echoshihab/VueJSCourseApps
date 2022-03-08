@@ -58,16 +58,22 @@ export default {
       this.invalidInput = false;
       //process.env.FIREBASE_ADDRESS
       this.error = null;
-      fetch(process.env.VUE_APP_FIREBASE_ADDRESS+ 'surveys', {
+      fetch(process.env.VUE_APP_FIREBASE_ADDRESS+ 'surveys.json', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({name: this.enteredName,
         rating: this.chosenRating}),
+      }).then(response => {
+        if(response.ok){
+          console.log("post successful");
+        } else {
+          throw new Error('Could not save data!!');
+        }
       }).catch(error => {
         console.log(error);
-        this.error = 'Something went wrong - try again later!'
+        this.error = error.message;
       })
 
       // this.$emit('survey-submit', {
