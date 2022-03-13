@@ -7,6 +7,7 @@ import App from './App.vue';
 const TeamsList = () => import('./components/teams/TeamsList.vue');
 const UsersList = () => import('./components/users/UsersList.vue');
 const TeamMembers = () => import('./components/teams/TeamMembers.vue');
+const NotFound = () => import('./components/nav/NotFound.vue');
 
 const router = createRouter({
     history: createWebHistory(),
@@ -15,6 +16,7 @@ const router = createRouter({
         { path: '/teams', component: TeamsList},
         { path: '/users', component: UsersList},
         { path: '/teams/:teamId', component: TeamMembers, props: true},
+        { path: '/:notFound(.*)', component: NotFound}
          //our-domain.com/teams => ...
     ]
 });
