@@ -32,6 +32,8 @@ export default {
   },
   created(){
     this.loadTeamMembers(this.teamId);
+    console.log("executing prior")
+    console.log(this.$route.query)
 
 },
 methods:{
