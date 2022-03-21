@@ -49,6 +49,11 @@ methods:{
     this.teamName = selectedTeam.teamName;
   }
 },
+beforeRouteUpdate(to, from, next){
+ console.log("Teammembers component before route update")
+ console.log(to.params.teamId);
+ next();
+},
 watch: {
   teamId(newId){
     this.loadTeamMembers(newId);
