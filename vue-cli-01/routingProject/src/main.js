@@ -45,11 +45,16 @@ const router = createRouter({
     }
 });
 
-router.beforeEach(function(to, from, next){
-    console.log('Global for each')
-    console.log(to, from);
-    next();
-});
+// router.beforeEach(function(to, from, next){
+//     console.log('Global for each')
+//     console.log(to, from);
+//     next();
+// });
+
+router.afterEach(function(to,from) {
+    console.log("coming from " + from.fullPath)
+    console.log("to" + to.fullPath)
+})
 
 const app = createApp(App)
 app.use(router);
