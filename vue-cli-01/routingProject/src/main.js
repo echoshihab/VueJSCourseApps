@@ -18,6 +18,7 @@ const router = createRouter({
         { 
             name: 'teams', 
             path: '/teams', 
+            meta: {needsAuth: true},
             components: {default: TeamsList, footer: TeamsFooter},
             children: [
          { name: 'team-members', path: ':teamId', component: TeamMembers, props: true},
@@ -45,16 +46,21 @@ const router = createRouter({
     }
 });
 
-// router.beforeEach(function(to, from, next){
-//     console.log('Global for each')
-//     console.log(to, from);
-//     next();
-// });
+router.beforeEach(function(to, from, next){
+    console.log('Global for each')
+    console.log(to, from);
+    if(to.meta.needsAuth){
+        console.log('needs auth');
+        next();
+    } else {
+        next();
+    }
+});
 
-router.afterEach(function(to,from) {
-    console.log("coming from " + from.fullPath)
-    console.log("to" + to.fullPath)
-})
+// router.afterEach(function(to,from) {
+//     console.log("coming from " + from.fullPath)
+//     console.log("to" + to.fullPath)
+// })
 
 const app = createApp(App)
 app.use(router);
