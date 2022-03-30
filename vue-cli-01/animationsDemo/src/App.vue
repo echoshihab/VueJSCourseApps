@@ -9,10 +9,14 @@
     </transition>
     <button @click="toggleParagraph">Toggle Paragraph</button>
   </div>
-    <base-modal @close="hideDialog" :open="dialogIsVisible">
-      <p>This is a test dialog!</p>
-      <button @click="hideDialog">Close it!</button>
-    </base-modal>
+  <div class="container">
+    <button @click="showUser" v-if="!usersAreVisible">Show Users</button>
+    <button @click="hideUser" v-if="usersAreVisible">Hide Users</button>
+  </div>
+  <base-modal @close="hideDialog" :open="dialogIsVisible">
+    <p>This is a test dialog!</p>
+    <button @click="hideDialog">Close it!</button>
+  </base-modal>
 
   
   <div class="container">
@@ -27,9 +31,16 @@ export default {
       animatedBlock: false,
       dialogIsVisible: false,
       paraIsVisible: false,
+      usersAreVisible: false
      };
   },
   methods: {
+    showUsers(){
+      this.usersAreVisible = true;
+    },
+    hideUsers(){
+      this.usersAreVisible = false;
+    },
     animateBlock(){
       this.animatedBlock = true
     },
