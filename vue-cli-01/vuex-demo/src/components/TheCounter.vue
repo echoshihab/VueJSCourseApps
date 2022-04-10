@@ -1,13 +1,15 @@
 <template>
-    <h3>{{counter}}</h3>
-
+    <h3>{{ counter }}</h3>
 </template>
 
 <script>
 
 export default {
-     counter(){
+    computed:{
+      counter(){
       return this.$store.state.counter;
     },
+    }
+     
 }
 </script>

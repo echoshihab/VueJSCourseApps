@@ -4,7 +4,7 @@
 
 
 <script>
-export default{
+export default {
     methods: {
         addOne() {
             this.$store.commit('increment');
