@@ -12,7 +12,7 @@ export default {
         // addOne() {
         //     this.$store.dispatch('increment');
         // }
-        ...mapActions(['increment', 'increase'])
+        ...mapActions('numbers',['increment', 'increase'])
     }
 }
 </script>
