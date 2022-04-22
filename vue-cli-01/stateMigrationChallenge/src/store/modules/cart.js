@@ -51,13 +51,13 @@ export default {
     },
     getters: {
         products(state) {
-            return state.items
+            return state.cart.items
         }   ,
         totalSum(state){
-            return state.total;
+            return state.cart.total.toFixed(2);
         },
         quantity(state){
-            return state.qty;
+            return state.cart.qty;
         } 
     }
 }
