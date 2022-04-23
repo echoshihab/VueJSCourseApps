@@ -2,10 +2,9 @@ export default {
     namespaced: true,
     state() {
         return {
-            cart: { 
                 items: [], 
                 total: 0, 
-                qty: 0}
+                qty: 0
         };
     },
     mutations: {
@@ -51,13 +50,13 @@ export default {
     },
     getters: {
         products(state) {
-            return state.cart.items
+            return state.items
         }   ,
         totalSum(state){
-            return state.cart.total.toFixed(2);
+            return state.total.toFixed(2);
         },
         quantity(state){
-            return state.cart.qty;
+            return state.qty;
         } 
     }
 }
