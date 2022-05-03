@@ -19,7 +19,7 @@
 export default {
   props: ['id', 'firstName', 'lastName', 'rate', 'areas'],
   computed: {
-    fullname() {
+    fullName() {
       return this.firstName + ' ' + this.lastName;
     },
     coachContactLink() {
