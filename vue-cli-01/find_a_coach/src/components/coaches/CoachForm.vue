@@ -39,8 +39,8 @@
 export default {
   data() {
     return {
-      firstName: '',
-      lastName: '',
+      firstname: '',
+      lastname: '',
       description: '',
       rate: null,
       areas: [],
@@ -49,8 +49,8 @@ export default {
   methods: {
     submitForm() {
       const formData = {
-        first: this.firstName,
-        last: this.lastName,
+        first: this.firstname,
+        last: this.lastname,
         desc: this.description,
         rate: this.rate,
         areas: this.areas,
