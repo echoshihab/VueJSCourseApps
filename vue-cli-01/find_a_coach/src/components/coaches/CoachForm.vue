@@ -143,11 +143,11 @@ export default {
         return;
       }
       const formData = {
-        first: this.firstname,
-        last: this.lastname,
-        desc: this.description,
-        rate: this.rate,
-        areas: this.areas,
+        first: this.firstname.val,
+        last: this.lastname.val,
+        desc: this.description.val,
+        rate: this.rate.val,
+        areas: this.areas.val,
       };
 
       this.$emit('save-data', formData);
