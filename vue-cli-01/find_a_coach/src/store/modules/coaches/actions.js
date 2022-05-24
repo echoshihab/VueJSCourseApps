@@ -30,6 +30,9 @@ export default {
     });
   },
   async loadCoaches(context) {
+    if (!context.getters.shouldUpdate) {
+      return;
+    }
     const response = await fetch(
       `${process.env.VUE_APP_FIREBASE_ADDRESS}coaches.json`
     );
