@@ -13,11 +13,11 @@ export default {
   shouldUpdate(state) {
     const lastFetch = state.lastFetch;
     if (!lastFetch) {
+      console.log('are we returning from here?');
       return true;
-    } else {
-      const currentTimeStamp = new Date().getTime();
-      console.log((currentTimeStamp - lastFetch) / 1000 > 60);
-      return (currentTimeStamp - lastFetch) / 1000 > 60;
     }
+    const currentTimeStamp = new Date().getTime();
+    console.log((currentTimeStamp - lastFetch) / 1000 > 60);
+    return (currentTimeStamp - lastFetch) / 1000 > 60;
   },
 };
